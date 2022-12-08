@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class ExamServiceTest {
 
 @Mock
-private QuestionService questionService;
+private JavaQuestionService questionService;
 
 @InjectMocks
 private ExaminerServiceImpl examinerServiceImpl;
@@ -35,7 +35,7 @@ private ExaminerServiceImpl examinerServiceImpl;
             new Question("Тест4", "4"));
     when(this.questionService.getAll()).thenReturn(questions);
     when(this.questionService.getRandomQuestion()).thenReturn(questions.get(0), questions.get(1));
-    assertThat(examinerServiceImpl.getQuestion(3)).hasSize(3).containsOnly(questions.get(0),questions.get(1));
+    assertThat(examinerServiceImpl.getQuestion(2)).hasSize(2).containsOnly(questions.get(0),questions.get(1));
 }
     @Test
     void whenAmountOfQuestionsIsInSufficientThanGetQuestionReturnExactAmount (){
